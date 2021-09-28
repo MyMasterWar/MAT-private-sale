@@ -46,7 +46,7 @@ contract MATPrivateSaleClaim is Ownable, ReentrancyGuard {
         _;
     }
 
-    function setTgeTime(uint256 _tge) public canSetup onlyOwner {
+    function setTgeTime(uint256 _tge) external canSetup onlyOwner {
         startTime = _tge + TGE_CLIFF;
         endTime = startTime + VESTING_DURATION;
 
@@ -61,7 +61,7 @@ contract MATPrivateSaleClaim is Ownable, ReentrancyGuard {
     }
 
     function setWhilelist(address[] calldata _users, uint256[] calldata _busds)
-        public
+        external
         canSetup
         onlyOwner
     {
@@ -125,7 +125,7 @@ contract MATPrivateSaleClaim is Ownable, ReentrancyGuard {
 
     //For FE
     function infoWallet(address _user)
-        public
+        external
         view
         returns (
             uint256,
